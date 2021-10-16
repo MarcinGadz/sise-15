@@ -4,22 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1e9202b-b36a-4655-916a-307a13576f36" name="Changes" comment="added main package">
+    <list default="true" id="d1e9202b-b36a-4655-916a-307a13576f36" name="Changes" comment="...">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Parser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/solver/DeepSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/solver/DeepSolver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/App.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Node.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Parser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Puzzle.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/solver/AcrossSolver.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/solver/AstrSolver.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/solver/DeepSolver.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/solver/ResultSet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/solver/Solver.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +64,7 @@
       <updated>1634118465385</updated>
       <workItem from="1634118467254" duration="11630000" />
       <workItem from="1634390053316" duration="6028000" />
-      <workItem from="1634397124275" duration="1110000" />
+      <workItem from="1634397124275" duration="2569000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1634128650831</created>
@@ -107,7 +94,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634395840383</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="...">
+      <created>1634398254129</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1634398254129</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,6 +135,7 @@
     <MESSAGE value="init" />
     <MESSAGE value="work" />
     <MESSAGE value="added main package" />
-    <option name="LAST_COMMIT_MESSAGE" value="added main package" />
+    <MESSAGE value="..." />
+    <option name="LAST_COMMIT_MESSAGE" value="..." />
   </component>
 </project>
