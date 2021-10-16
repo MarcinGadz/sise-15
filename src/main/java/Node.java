@@ -20,38 +20,64 @@ public class Node {
             }
         }
         switch (direction) {
-            case 'L':
+            case 'L' -> {
                 toX = (short) (x0 - 1);
-                break;
-            case 'R':
+                toY = y0;
+            }
+            case 'R' -> {
                 toX = (short) (x0 + 1);
-                break;
-            case 'U':
+                toY = y0;
+            }
+            case 'U' -> {
                 toY = (short) (y0 + 1);
-                break;
-            case 'D':
+                toX = x0;
+            }
+            case 'D' -> {
                 toY = (short) (y0 - 1);
+                toX = x0;
+            }
+            default -> throw new IllegalArgumentException("Bad direction");
         }
-        if (toX < 0 || toY < 0 || toX > tab[toY].length || toY > tab.length)
-        swapFields(x0, y0, toX, toY);
-    }
-
-    private void swapFields(byte fromX, byte fromY, byte toX, byte toY) {
-        short tmp = tab[fromX][fromY];
-        tab[fromX][fromY] = tab[toX][toY];
+        if (toX < 0 || toY < 0 || toX > tab[0].length || toY > tab.length) {
+            throw new IndexOutOfBoundsException("Something went wrong");
+        }
+        short tmp = tab[x0][y0];
+        tab[x0][y0] = tab[toX][toY];
         tab[toX][toY] = tmp;
     }
+
 
     public Node(short[][] tab, Node parent) {
         this.tab = tab;
         if (parent != null) {
             this.parent = parent;
+            this.numberOfMoves = parent.getNumberOfMoves();
         }
     }
 
     public Node createChild(short[][] content, Character move, Node parent) {
         Node child = new Node(content, parent);
-        return null;
+        parent.getChildren().put(move, child);
+        return child;
+    }
 
+
+
+    /*** Getters ***/
+
+    public short[][] getTab() {
+        return tab;
+    }
+
+    public Node getParent() {
+        return parent;
+    }
+
+    public Map<Character, Node> getChildren() {
+        return children;
+    }
+
+    public int getNumberOfMoves() {
+        return numberOfMoves;
     }
 }
