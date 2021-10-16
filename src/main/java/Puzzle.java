@@ -6,9 +6,6 @@ public class Puzzle {
     private short[][] tab;
     private int numberOfMoves;
 
-    /***
-     * Public methods
-     */
     public void move(byte fromX, byte fromY, byte toX, byte toY) {
         numberOfMoves++;
         swapFields(fromX, fromY, toX, toY);
