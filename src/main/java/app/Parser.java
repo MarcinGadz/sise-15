@@ -1,7 +1,5 @@
 package app;
 
-import org.apache.commons.lang3.ArrayUtils;
-
 import java.io.*;
 
 public class Parser {
@@ -15,7 +13,6 @@ public class Parser {
             short[][] tab = new short[rows][cols];
             for (int i = 1; i < rows + 1; i++) {
                 String[] line = content[i].split(" ");
-                System.out.println(ArrayUtils.toString(line));
                 for (int j = 0; j < cols; j++) {
                     if (i == rows && j == cols - 1) {
                         tab[i-1][j] = 0;

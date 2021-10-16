@@ -1,17 +1,19 @@
 package app;
 
-import org.apache.commons.lang3.ArrayUtils;
 import app.solver.ResultSet;
+
+import java.util.Arrays;
 
 public class App {
     public static void main(String[] args) {
+
         for (String s : args) {
             System.out.println(s);
         }
         //example
         String filename = "test.txt";
         short[][] tab = Parser.parse(filename);
-        System.out.println(ArrayUtils.toString(tab));
+        System.out.println(Arrays.toString(tab));
         ResultSet s = new ResultSet(
                 "LDUPLLPDLDLD"
                 , 230,
