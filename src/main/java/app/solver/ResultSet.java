@@ -1,5 +1,4 @@
-package solver;
-
+package app.solver;
 public class ResultSet {
     /***
      * Class to represent required data about resolved puzzle
@@ -20,6 +19,7 @@ public class ResultSet {
     }
 
     public String generateReport() {
+
         StringBuilder b = new StringBuilder();
         b.append(solution.length());
         b.append("\n");

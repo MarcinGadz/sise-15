@@ -1,3 +1,4 @@
+package app;
 public class Puzzle {
     /***
      * Fields
@@ -5,7 +6,6 @@ public class Puzzle {
 
     private short[][] tab;
     private int numberOfMoves;
-
     public void move(byte fromX, byte fromY, byte toX, byte toY) {
         numberOfMoves++;
         swapFields(fromX, fromY, toX, toY);

@@ -1,5 +1,4 @@
-package solver;
-
+package app.solver;
 public interface Solver {
     /***
      *
@@ -7,5 +6,5 @@ public interface Solver {
      * @param tab
      * @return class with all data about computed solution
      */
-    public ResultSet solve(String strategy, short[][] tab);
+    public app.solver.ResultSet solve(String strategy, short[][] tab);
 }

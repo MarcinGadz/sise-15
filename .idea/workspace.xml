@@ -4,21 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1e9202b-b36a-4655-916a-307a13576f36" name="Changes" comment="init">
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Node.java" afterDir="false" />
+    <list default="true" id="d1e9202b-b36a-4655-916a-307a13576f36" name="Changes" comment="work">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fifteen.iml" beforeDir="false" afterPath="$PROJECT_DIR$/fifteen.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Puzzle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Puzzle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Parser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Puzzle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Puzzle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/solver/AcrossSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/solver/AcrossSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/solver/AstrSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/solver/AstrSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/solver/DeepSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/solver/DeepSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/solver/ResultSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/solver/ResultSet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/solver/Solver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/solver/Solver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Parser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Puzzle.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Puzzle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/solver/AcrossSolver.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/solver/AcrossSolver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/solver/AstrSolver.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/solver/AstrSolver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/solver/DeepSolver.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/solver/DeepSolver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/solver/ResultSet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/solver/ResultSet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/solver/Solver.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/solver/Solver.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +56,7 @@
   <component name="RunManager">
     <configuration name="App" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="openjdk-17" />
-      <option name="MAIN_CLASS_NAME" value="App" />
+      <option name="MAIN_CLASS_NAME" value="app.App" />
       <module name="fifteen" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -75,7 +72,7 @@
       <option name="presentableId" value="Default" />
       <updated>1634118465385</updated>
       <workItem from="1634118467254" duration="11630000" />
-      <workItem from="1634390053316" duration="3602000" />
+      <workItem from="1634390053316" duration="4754000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1634128650831</created>
@@ -84,7 +81,21 @@
       <option name="project" value="LOCAL" />
       <updated>1634128650831</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="work">
+      <created>1634394681398</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1634394681398</updated>
+    </task>
+    <task id="LOCAL-00003" summary="work">
+      <created>1634395247566</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1634395247566</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -116,6 +127,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
-    <option name="LAST_COMMIT_MESSAGE" value="init" />
+    <MESSAGE value="work" />
+    <option name="LAST_COMMIT_MESSAGE" value="work" />
   </component>
 </project>
