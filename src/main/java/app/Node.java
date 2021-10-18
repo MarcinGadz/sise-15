@@ -14,6 +14,11 @@ public class Node {
     private String path = "";
     //Location of empty cell
     private short x0, y0;
+    public short checked;
+
+    public void tagAsChecked(){
+        checked++;
+    }
 
     public boolean canCreateChildInDirection(Character direction) {
         for (short i = 0; i < tab.length; i++) {

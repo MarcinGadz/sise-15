@@ -3,21 +3,29 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1e9202b-b36a-4655-916a-307a13576f36" name="Changes" comment="Added parsing arguments, saving results and stats to files">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_12_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="d1e9202b-b36a-4655-916a-307a13576f36" name="Changes" comment="work">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fifteen.iml" beforeDir="false" afterPath="$PROJECT_DIR$/fifteen.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Node.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/solver/AcrossSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/solver/AcrossSolver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/solver/AstrSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/solver/AstrSolver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/solver/DeepSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/solver/DfsSolver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/solver/ResultSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/solver/ResultSet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/solver/Solver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/solver/Solver.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +44,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1zRkoWwlEiYsRCRylKhstEQXFjl" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -60,6 +70,17 @@
       <option name="ALTERNATIVE_JRE_PATH" value="openjdk-17" />
       <option name="MAIN_CLASS_NAME" value="app.App" />
       <module name="fifteen" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
