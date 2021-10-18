@@ -30,9 +30,17 @@ public class AcrossSolver extends Solver {
                  }
             }
             else {
-                n.tagAsChecked();
-                n = n.getChildren().get(priorities[n.checked-1]);
-                explore(n);
+                if(n.getParent().checked != 4 || n.getParent() == null) {
+                    n.tagAsChecked();
+                    n = n.getChildren().get(priorities[n.checked-1]);
+                    explore(n);
+                }
+                else {
+                    n = n.getParent().getChildren().get(priorities[n.getParent().checked]);
+                    n.getParent().tagAsChecked();
+                    explore(n);
+                }
+
             }
 
         }
