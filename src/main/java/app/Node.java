@@ -1,5 +1,7 @@
 package app;
 
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Map;
 
 public class Node {
@@ -8,10 +10,20 @@ public class Node {
     private Node parent;
     private Map<Character, Node> children;
     private int numberOfMoves;
+    private int depth;
+    private String path = "";
     //Location of empty cell
     private short x0, y0;
 
     public boolean canCreateChildInDirection(Character direction) {
+        for (short i = 0; i < tab.length; i++) {
+            for (short j = 0; j < tab[i].length; j++) {
+                if (tab[i][j] == 0) {
+                    x0 = j;
+                    y0 = i;
+                }
+            }
+        }
         short toX, toY;
         switch (direction) {
             case 'L' -> {
@@ -23,16 +35,19 @@ public class Node {
                 toY = y0;
             }
             case 'U' -> {
-                toY = (short) (y0 + 1);
+                toY = (short) (y0 - 1);
                 toX = x0;
             }
             case 'D' -> {
-                toY = (short) (y0 - 1);
+                toY = (short) (y0 + 1);
                 toX = x0;
             }
             default -> {
                 return false;
             }
+        }
+        if(tab[y0][x0] != 0 ) {
+            throw new RuntimeException();
         }
         return toX >= 0 && toY >= 0 && toX < tab[0].length && toY < tab.length;
     }
@@ -50,11 +65,11 @@ public class Node {
                 toY = y0;
             }
             case 'U' -> {
-                toY = (short) (y0 + 1);
+                toY = (short) (y0 - 1);
                 toX = x0;
             }
             case 'D' -> {
-                toY = (short) (y0 - 1);
+                toY = (short) (y0 + 1);
                 toX = x0;
             }
             default -> throw new IllegalArgumentException("Bad direction");
@@ -62,22 +77,32 @@ public class Node {
         if (toX < 0 || toY < 0 || toX >= tab[0].length || toY >= tab.length) {
             throw new IndexOutOfBoundsException("Something went wrong");
         }
-        short tmp = tab[x0][y0];
-        tab[x0][y0] = tab[toX][toY];
-        tab[toX][toY] = tmp;
+        short tmp = tab[y0][x0];
+        tab[y0][x0] = tab[toY][toX];
+        tab[toY][toX] = tmp;
+        if(tmp != 0) throw new RuntimeException();
+        this.path += direction;
         x0 = toX;
         y0 = toY;
     }
 
+    public void printPrettyTab() {
+        for (int i = 0; i < tab.length; i++) {
+            for (int j = 0; j < tab[i].length; j++) {
+                System.out.print(tab[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
 
     public Node(short[][] tab, Node parent) {
         this.tab = tab;
         //find location of 0
         for (short i = 0; i < tab.length; i++) {
             for (short j = 0; j < tab[i].length; j++) {
-                if(tab[i][j] == 0) {
-                    x0 = i;
-                    y0 = j;
+                if (tab[i][j] == 0) {
+                    x0 = j;
+                    y0 = i;
                 }
             }
         }
@@ -87,18 +112,27 @@ public class Node {
         }
     }
 
-    public Node createChild(short[][] content, Character move, Node parent) {
-        Node child = new Node(content, parent);
-        parent.getChildren().put(move, child);
+    public Node createChild(Character move) {
+        short[][] tmp = Arrays.copyOf(this.tab, this.tab.length);
+        Node child = new Node(tmp, this);
+        child.depth = this.getDepth() + 1;
+        child.path = this.path;
+        if (this.getChildren() == null) {
+            this.children = new HashMap<>();
+        }
+        this.getChildren().put(move, child);
         return child;
     }
-
 
 
     /*** Getters ***/
 
     public short[][] getTab() {
         return tab;
+    }
+
+    public String getPath() {
+        return path;
     }
 
     public Node getParent() {
@@ -111,5 +145,9 @@ public class Node {
 
     public int getNumberOfMoves() {
         return numberOfMoves;
+    }
+
+    public int getDepth() {
+        return depth;
     }
 }

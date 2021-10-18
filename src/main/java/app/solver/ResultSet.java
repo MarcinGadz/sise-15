@@ -18,8 +18,10 @@ public class ResultSet {
         this.computeTimeMicros = computeTimeMilis;
     }
 
-    public String generateReport() {
+    public ResultSet() {
+    }
 
+    public String generateReport() {
         StringBuilder b = new StringBuilder();
         b.append(solution.length());
         b.append("\n");
@@ -32,6 +34,12 @@ public class ResultSet {
         String tmp = (computeTimeMicros / 1000)  + "," + (computeTimeMicros % 1000);
         b.append(tmp);
         return b.toString();
+    }
+    public void visitedIncrease() {
+        visited++;
+    }
+    public void checkedIncrease() {
+        checked++;
     }
 
     public String getSolution() {
@@ -52,5 +60,25 @@ public class ResultSet {
 
     public long getComputeTimeMicros() {
         return computeTimeMicros;
+    }
+
+    public void setSolution(String solution) {
+        this.solution = solution;
+    }
+
+    public void setVisited(int visited) {
+        this.visited = visited;
+    }
+
+    public void setChecked(int checked) {
+        this.checked = checked;
+    }
+
+    public void setMaxRecursionDepth(int maxRecursionDepth) {
+        this.maxRecursionDepth = maxRecursionDepth;
+    }
+
+    public void setComputeTimeMicros(long computeTimeMicros) {
+        this.computeTimeMicros = computeTimeMicros;
     }
 }

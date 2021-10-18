@@ -4,9 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1e9202b-b36a-4655-916a-307a13576f36" name="Changes" comment="...">
+    <list default="true" id="d1e9202b-b36a-4655-916a-307a13576f36" name="Changes" comment="Added parsing arguments, saving results and stats to files">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_12_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fifteen.iml" beforeDir="false" afterPath="$PROJECT_DIR$/fifteen.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/solver/AcrossSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/solver/AcrossSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/solver/AstrSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/solver/AstrSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/solver/DeepSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/solver/DfsSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/solver/ResultSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/solver/ResultSet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/solver/Solver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/solver/Solver.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +75,8 @@
       <updated>1634118465385</updated>
       <workItem from="1634118467254" duration="11630000" />
       <workItem from="1634390053316" duration="6028000" />
-      <workItem from="1634397124275" duration="2569000" />
+      <workItem from="1634397124275" duration="2760000" />
+      <workItem from="1634508689029" duration="12104000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1634128650831</created>
@@ -101,7 +113,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634398254129</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added parsing arguments, saving results and stats to files">
+      <created>1634399746399</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1634399746399</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -136,6 +155,7 @@
     <MESSAGE value="work" />
     <MESSAGE value="added main package" />
     <MESSAGE value="..." />
-    <option name="LAST_COMMIT_MESSAGE" value="..." />
+    <MESSAGE value="Added parsing arguments, saving results and stats to files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added parsing arguments, saving results and stats to files" />
   </component>
 </project>
