@@ -1,23 +1,39 @@
 package app;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import org.apache.commons.lang3.SerializationUtils;
 
-public class Node {
+import java.io.Serializable;
+import java.util.*;
+
+public class Node implements Serializable {
     private short[][] tab;
     //If parent is null, node is ROOT
     private Node parent;
-    private Map<Character, Node> children;
+    private Stack<Node> children;
+    private List<Character> visited = Collections.emptyList();
     private int numberOfMoves;
-    private int depth;
-    private String path = "";
+    private char move = 'x';
     //Location of empty cell
     private short x0, y0;
     public short checked;
 
     public void tagAsChecked(){
         checked++;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Node node = (Node) o;
+        return Arrays.deepEquals(tab, node.tab);
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        result = 31 *  Arrays.deepHashCode(tab);
+        return result;
     }
 
     public boolean canCreateChildInDirection(Character direction) {
@@ -86,7 +102,7 @@ public class Node {
         tab[y0][x0] = tab[toY][toX];
         tab[toY][toX] = tmp;
         if(tmp != 0) throw new RuntimeException();
-        this.path += direction;
+        this.move = direction;
         x0 = toX;
         y0 = toY;
     }
@@ -117,19 +133,39 @@ public class Node {
         }
     }
 
-    public Node createChild(Character move) {
-        short[][] tmp = Arrays.copyOf(this.tab, this.tab.length);
+    public Node createChild() {
+        short[][] tmp = SerializationUtils.clone(this.tab);
         Node child = new Node(tmp, this);
-        child.depth = this.getDepth() + 1;
-        child.path = this.path;
         if (this.getChildren() == null) {
-            this.children = new HashMap<>();
+            this.children = new Stack<>();
         }
-        this.getChildren().put(move, child);
+        this.getChildren().push(child);
         return child;
     }
 
+    public void generateChildren(char[] priorities) {
+        for (char c:priorities) {
+            if(canCreateChildInDirection(c)) {
+                Node child = this.createChild();
+                child.move(c);
+            }
+        }
+    }
 
+    public boolean notVisited(char c) {
+        return !visited.contains(c);
+    }
+
+    public List<Character> getVisited() {
+        return visited;
+    }
+
+    public void addVisited(char c) {
+        if(visited.isEmpty()) {
+            visited = new ArrayList<>();
+        }
+        visited.add(c);
+    }
     /*** Getters ***/
 
     public short[][] getTab() {
@@ -137,14 +173,26 @@ public class Node {
     }
 
     public String getPath() {
-        return path;
+        StringBuilder b = new StringBuilder();
+        Node tmp = this;
+        while (tmp != null) {
+            if(tmp.getMove() != 'x') {
+                b.append(tmp.getMove());
+            }
+            tmp = tmp.parent;
+        }
+        return b.reverse().toString();
+    }
+
+    public Character getMove() {
+        return this.move;
     }
 
     public Node getParent() {
         return parent;
     }
 
-    public Map<Character, Node> getChildren() {
+    public Stack<Node> getChildren() {
         return children;
     }
 
@@ -153,6 +201,12 @@ public class Node {
     }
 
     public int getDepth() {
+        int depth = 1;
+        Node tmp = this;
+        while (tmp != null) {
+            tmp = tmp.getParent();
+            depth++;
+        }
         return depth;
     }
 }

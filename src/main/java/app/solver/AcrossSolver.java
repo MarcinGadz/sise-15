@@ -21,13 +21,13 @@ public class AcrossSolver extends Solver {
 
         while(!isSolved(n.getTab())){
             if(n.getChildren().size()<4){
-                 Node child = n.createChild(priorities[n.getChildren().size()]);
-                 if (isSolved(child.getTab())) {
-                     return child;
-                 }
-                 else {
-                     explore(n);
-                 }
+//                 Node child = n.createChild(priorities[n.getChildren().size()]);
+//                 if (isSolved(child.getTab())) {
+//                     return child;
+//                 }
+//                 else {
+//                     explore(n);
+//                 }
             }
             else {
                 if(n.getParent().checked != 4 || n.getParent() == null) {
