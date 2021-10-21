@@ -33,10 +33,7 @@ public class DfsSolver extends Solver {
         if((System.nanoTime() - startTime)/1000000000 >= 10000) {
             throw new RuntimeException("Upłynął maksymalny czas");
         }
-        if(finished) {
-            return;
-        }
-        if(n.getDepth() > maxDepth) {
+        if(finished || n.getDepth() > maxDepth) {
             return;
         }
         results.setMaxRecursionDepth(Math.max(results.getMaxRecursionDepth(), n.getDepth()));
@@ -46,9 +43,6 @@ public class DfsSolver extends Solver {
                 break;
             }
             if(n.canCreateChildInDirection(c)) {
-                if(!n.notVisited(c)) {
-                    continue;
-                }
                 if(!wasChildrenGenerated) {
                     n.generateChildren(priorities);
                     wasChildrenGenerated = true;

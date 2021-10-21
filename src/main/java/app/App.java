@@ -57,7 +57,7 @@ public class App {
         String[] fnames = dir.list();
         int countFiles = fnames.length;
         int tmpCount = 0;
-        for (int i = 0; i<3; i++) {
+        for (int i = 0; i<160; i++) {
             switch (algorithm.toLowerCase()) {
                 case "bfs" -> System.out.println("BFS");
                 case "dfs" -> solver = new DfsSolver();
