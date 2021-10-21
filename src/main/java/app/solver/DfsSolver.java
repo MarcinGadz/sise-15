@@ -21,9 +21,6 @@ public class DfsSolver extends Solver {
         explore(n);
         Long finishTime = System.nanoTime();
         results.setComputeTimeMicros((finishTime - startTime) / 1000);
-        //TODO
-        results.setChecked(1234);
-        results.setVisited(3333);
         if(results.getSolution() == null) {
             throw new RuntimeException("Nie udało się");
         }
@@ -57,6 +54,7 @@ public class DfsSolver extends Solver {
                     wasChildrenGenerated = true;
                 }
                 Node child = n.getChildren().pop();
+                results.visitedIncrease();
                 n.addVisited(c);
                 if(isSolved(child.getTab())) {
                     finished = true;
@@ -70,56 +68,4 @@ public class DfsSolver extends Solver {
         }
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//    private void explore(Node n) {
-//        if(!isSolved(n.getTab()) && !finished) {
-//            if (n.getDepth() < maxDepth) {
-//                System.out.println(n.getDepth());
-//                if(visited.contains(n)) {
-//                    n = visited.get(visited.indexOf(n));
-//                    return;
-//                }
-//                else {
-//                    visited.add(SerializationUtils.clone(n));
-//                }
-//                for (char priority : priorities) {
-//                    if (n.canCreateChildInDirection(priority) && n.notVisited(priority)) {
-//                        System.out.println(n.getVisited());
-//                        n.addVisited(priority);
-//                        n = n.createChild(priority);
-//                        n.move(priority);
-//                        n.printPrettyTab();
-//                        if(isSolved(n.getTab())) {
-//                            System.out.println("SOLVED");
-//                            finished = true;
-//                            results.setSolution(n.getPath());
-//                            return;
-//                        }
-//                        explore(n);
-//                    }
-//                }
-//            } else {
-//                System.out.println("max depth reached");
-//            }
-//        }
-//    }
 }
