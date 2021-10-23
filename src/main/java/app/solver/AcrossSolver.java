@@ -5,48 +5,118 @@ import app.Node;
 public class AcrossSolver extends Solver {
 
     private char[] priorities;
+    short level = 0;
+    Node parent;
 
     @Override
     public ResultSet solve(String strategy, short[][] tab) {
 
         ResultSet resultSet = new ResultSet();
         Node n = new Node(tab, null);
-        n = explore(n);
+        parent = n;
+        explore(n);
         return resultSet;
     }
 
-
-
-    private Node explore(Node n) {
-
-        while(!isSolved(n.getTab())){
-            if(n.getChildren().size()<4){
-//                 Node child = n.createChild(priorities[n.getChildren().size()]);
-//                 if (isSolved(child.getTab())) {
-//                     return child;
-//                 }
-//                 else {
-//                     explore(n);
-//                 }
-            }
-            else {
-                if(n.getParent().checked != 4 || n.getParent() == null) {
-                    n.tagAsChecked();
-                    n = n.getChildren().get(priorities[n.checked-1]);
-                    explore(n);
-                }
-                else {
-                    n = n.getParent().getChildren().get(priorities[n.getParent().checked]);
-                    n.getParent().tagAsChecked();
-                    explore(n);
-                }
-
-            }
-
+    private boolean checklevel(Node node) {
+        if(!node.isVis() && node.getDepth()==level-1){
+            return false;
         }
-        System.out.println("SOLVED");
-        return n;
+        else {
+            for( Node n : node.getChildren()) {
+                return checklevel(n);
+            }
+        }
+        return true;
     }
+
+    private void clearAllTree(Node node) {
+        if(node.getChildren().size()==0){
+            return;
+        }
+        else {
+            for( Node n : node.getChildren()) {
+                n.vis = false;
+                clearAllTree(n);
+            }
+        }
+    }
+
+
+    private boolean finished;
+
+    private void explore(Node n) {
+        if(finished) {
+            return;
+        }
+        if(!checklevel(parent)) return;
+
+        n.generateChildren(priorities);
+        level++;
+        for (Node nodes : n.getChildren()){
+            if(isSolved(nodes.getTab())) {
+                finished=true;
+                return; // jest git
+            }
+            nodes.vis = true;
+            System.out.println(nodes.getTab());
+        }
+        for ( Node nodes : n.getChildren()) {
+            if(finished) return;
+            explore(nodes);
+        }
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//        while(!isSolved(n.getTab())) {
+//
+//            if(checklevel()
+//
+//            if(n.getChildren().size()==0) {
+//                return;
+//            }
+//
+//
+//            n.vis = true;
+//
+//
+//
+//
+//            if(n.getDepth()!=level){
+//                for(Node nodes : n.getChildren()){
+//                    explore(nodes);
+//                }
+//            }
+//            else {
+//                n.generateChildren(priorities);
+//                n.vis= false;
+//                level++;
+//            }
+//
+//            for (Node nodes : n.getChildren()){
+//                if(isSolved(nodes.getTab())) {
+//                    nodes.vis=true;
+//                    return; // jest git
+//                }
+//            }
+//
+//            for (Node nodes : n.getChildren()){
+//                explore(nodes);
+//            }
+//
+//        }
+
+
+    }
+
+
+
 
 
 }
