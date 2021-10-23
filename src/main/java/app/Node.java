@@ -209,4 +209,12 @@ public class Node implements Serializable {
         }
         return depth;
     }
+
+    public short getX0() {
+        return x0;
+    }
+
+    public short getY0() {
+        return y0;
+    }
 }
