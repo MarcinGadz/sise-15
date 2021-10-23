@@ -15,10 +15,10 @@ public class Node implements Serializable {
     private char move = 'x';
     //Location of empty cell
     private short x0, y0;
-    public short checked;
+    public boolean vis;
 
-    public void tagAsChecked(){
-        checked++;
+    public boolean isVis() {
+        return vis;
     }
 
     @Override

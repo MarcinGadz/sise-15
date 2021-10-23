@@ -12,6 +12,7 @@ public class AcrossSolver extends Solver {
     public ResultSet solve(String strategy, short[][] tab) {
 
         ResultSet resultSet = new ResultSet();
+        priorities = new StringBuilder(strategy.toUpperCase()).reverse().toString().toCharArray();
         Node n = new Node(tab, null);
         parent = n;
         explore(n);
@@ -23,6 +24,7 @@ public class AcrossSolver extends Solver {
             return false;
         }
         else {
+            if(node.getChildren()==null) return false;
             for( Node n : node.getChildren()) {
                 return checklevel(n);
             }
@@ -49,74 +51,25 @@ public class AcrossSolver extends Solver {
         if(finished) {
             return;
         }
-        if(!checklevel(parent)) return;
-
         n.generateChildren(priorities);
         level++;
         for (Node nodes : n.getChildren()){
             if(isSolved(nodes.getTab())) {
                 finished=true;
+                for (int i = 0; i < nodes.getTab().length; i++) {
+                    for (int j = 0; j < nodes.getTab()[0].length; j++) {
+                        System.out.print(nodes.getTab()[i][j]);
+                    }
+                }
                 return; // jest git
             }
             nodes.vis = true;
             System.out.println(nodes.getTab());
         }
+        if(checklevel(parent)) return;
         for ( Node nodes : n.getChildren()) {
             if(finished) return;
             explore(nodes);
         }
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//        while(!isSolved(n.getTab())) {
-//
-//            if(checklevel()
-//
-//            if(n.getChildren().size()==0) {
-//                return;
-//            }
-//
-//
-//            n.vis = true;
-//
-//
-//
-//
-//            if(n.getDepth()!=level){
-//                for(Node nodes : n.getChildren()){
-//                    explore(nodes);
-//                }
-//            }
-//            else {
-//                n.generateChildren(priorities);
-//                n.vis= false;
-//                level++;
-//            }
-//
-//            for (Node nodes : n.getChildren()){
-//                if(isSolved(nodes.getTab())) {
-//                    nodes.vis=true;
-//                    return; // jest git
-//                }
-//            }
-//
-//            for (Node nodes : n.getChildren()){
-//                explore(nodes);
-//            }
-//
-//        }
-
-
     }
-
-
-
-
-
 }

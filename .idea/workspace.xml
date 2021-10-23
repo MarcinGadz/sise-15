@@ -23,15 +23,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d1e9202b-b36a-4655-916a-307a13576f36" name="Changes" comment="Working DFS alghoritm">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fifteen.iml" beforeDir="false" afterPath="$PROJECT_DIR$/fifteen.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Parser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/solver/AcrossSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/solver/AcrossSolver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/solver/DfsSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/solver/DfsSolver.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,6 +194,14 @@
           <url>file://$PROJECT_DIR$/src/main/java/app/solver/DfsSolver.java</url>
           <line>96</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/app/solver/AcrossSolver.java</url>
+          <line>49</line>
+          <properties class="app.solver.AcrossSolver" method="explore">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
