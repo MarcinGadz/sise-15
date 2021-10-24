@@ -15,7 +15,7 @@ public class Node implements Serializable {
     private char move = 'x';
     //Location of empty cell
     private short x0, y0;
-    public boolean vis;
+    public boolean vis = false;
 
     public boolean isVis() {
         return vis;
@@ -209,4 +209,16 @@ public class Node implements Serializable {
         }
         return depth;
     }
+
+    public void print() {
+        for (int i = 0; i < this.getTab().length; i++) {
+            for (int j = 0; j < this.getTab()[0].length; j++) {
+                System.out.print(this.getTab()[i][j]);
+            }
+            System.out.println("");
+        }
+        System.out.println("Tablica");
+    }
+
+
 }
