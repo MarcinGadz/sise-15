@@ -72,14 +72,21 @@ public class AcrossSolver extends Solver {
 //            explore(nodes);
 //        }
 //    }
+    private final int maxDepth = 20;
     boolean finished = false;
-    private void explore(Node node) {
 
+    private void explore(Node node) {
+        if(node.getDepth() > maxDepth) {
+            return;
+        }
         if(finished) return;
-        if(checklevel(node)) return;
+       // if(checklevel(node)) return;
         node.generateChildren(priorities);
         for (Node nodes : node.getChildren()){
-            if(isSolved(nodes.getTab())) finished=true;
+            if(isSolved(nodes.getTab())) {
+                finished=true;
+                nodes.print();
+            }
         }
         level++;
         node.vis = true;
