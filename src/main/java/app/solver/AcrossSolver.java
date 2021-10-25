@@ -26,7 +26,7 @@ public class AcrossSolver extends Solver {
             found=true;
             return false;
         }
-        if(node.getChildren()==null) return true;
+        if(node.getChildren()==null) return false;
         for( Node n : node.getChildren()) {
             if (!checklevel(n)) {
                 found = true;
@@ -80,14 +80,15 @@ public class AcrossSolver extends Solver {
             return;
         }
         if(finished) return;
-       // if(checklevel(node)) return;
         node.generateChildren(priorities);
+        node.print();
         for (Node nodes : node.getChildren()){
             if(isSolved(nodes.getTab())) {
                 finished=true;
                 nodes.print();
             }
         }
+        if(checklevel(node)) return;
         level++;
         node.vis = true;
         for (Node nodes : node.getChildren()){
