@@ -58,6 +58,6 @@ public class DfsSolver extends Solver {
             }
             explore(child);
         });
-        results.setChecked(results.getChecked() + 1);
+        results.checkedIncrease();
     }
 }
