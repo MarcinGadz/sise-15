@@ -1,78 +1,61 @@
 package app;
 
-//import app.solver.DfsOtherSolver;
+import app.solver.*;
 
-import app.solver.AstrSolver;
-import app.solver.DfsSolver;
-import app.solver.ResultSet;
-import app.solver.Solver;
-
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Arrays;
+import java.nio.charset.StandardCharsets;
 
 public class App {
     public static void main(String[] args) {
-        short[][] testTab = {
-                {0, 2},
-                {1, 3}};
-        Solver s = new AstrSolver();
-        s.solve("hamm", testTab);
-        return;
-//        String algorithm, additionalInfo, input, solution, stats;
-//        if (args.length != 5) {
-//            System.out.println("Niepoprawne parametry");
-//            return;
-//        }
-//        algorithm = args[0];
-//        additionalInfo = args[1];
-//        input = args[2];
-//        solution = args[3];
-//        stats = args[4];
-//
-//        Solver solver = new DfsSolver();
-//
-////        switch (algorithm.toLowerCase()) {
-////            case "bfs" -> System.out.println("BFS");
-////            case "dfs" -> solver = new DfsSolver();
-////            case "astr" -> System.out.println("ASTR");
-////        }
-//
-//        /***
-//         * TEST
-//         */
-////        short[][] testTab = {
-////                {0,2},
-////                {1,3}};
-////        short[][] testTab = {{1,2,3},{4,5,6},{0,8,7}};
-////        short[][] testTab = {
-////                {1, 6, 2, 0},
-////                {9, 5, 15, 3},
-////                {10, 7, 12, 11},
-////                {13, 14, 4, 8}
-//////        };
-////        ResultSet set = solver.solve("DRUL",testTab);
-////        System.out.println(set.generateReport());
-//        /***
-//         * END TEST
-//         */
-//        //Parse file with name as in 'input'
-//        String filename = input;
+        String algorithm, additionalInfo, input, solution, stats;
+        if (args.length != 5) {
+            System.out.println("Niepoprawne parametry");
+            return;
+        }
+        algorithm = args[0];
+        additionalInfo = args[1];
+        input = args[2];
+        solution = args[3];
+        stats = args[4];
+
+        Solver solver = new DfsSolver();
+
+        switch (algorithm.toLowerCase()) {
+            case "bfs" -> solver = new AcrossSolver();
+            case "dfs" -> solver = new DfsSolver();
+            case "astr" -> solver = new AstrSolver();
+        }
+
+        short[][] tab = Parser.parse(input);
+        ResultSet set = solver.solve(additionalInfo, tab);
+
+        try {
+            FileOutputStream outputStream = new FileOutputStream(solution);
+            outputStream.write(set.generateSolutionReport().getBytes(StandardCharsets.UTF_8));
+            outputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            FileOutputStream outputStream = new FileOutputStream(stats);
+            outputStream.write(set.generateAdditionalReport().getBytes());
+            outputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 //        File dir = new File("input");
 //        System.out.println(dir.getAbsolutePath());
 //        String[] fnames = dir.list();
 //        int countFiles = fnames.length;
 //        int tmpCount = 0;
-//        for (int i = 0; i<160; i++) {
-//            switch (algorithm.toLowerCase()) {
-//                case "bfs" -> System.out.println("BFS");
-//                case "dfs" -> solver = new DfsSolver();
-//                case "astr" -> System.out.println("ASTR");
-//            }
+//        for (int i = 0; i < 160; i++) {
 //            short[][] tab = Parser.parse(dir.getPath() + "\\" + fnames[i]);
 //
+//            Solver solver = new DfsSolver();
+//            String additionalInfo = "LRUD";
 //            //save result to file with name as in solution
 //            try {
 //                ResultSet s = solver.solve(additionalInfo, tab);
@@ -84,29 +67,6 @@ public class App {
 //        }
 //        System.out.println("Rozwiązano: " + tmpCount + " z: " + 100);
 
-//        try {
-//            FileOutputStream outputStream = new FileOutputStream(solution);
-//            byte[] strToBytes = "PLIK Z WYNIKAMI".getBytes();
-//            outputStream.write(strToBytes);
-//            outputStream.close();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
 
-//        //Save stats to file 'stats'
-//        ResultSet s = new ResultSet(
-//                "LDUPLLPDLDLD"
-//                , 230,
-//                150,
-//                24,
-//                1345672);
-//        try {
-//            FileOutputStream outputStream = new FileOutputStream(stats);
-//            byte[] strToBytes = s.generateReport().getBytes();
-//            outputStream.write(strToBytes);
-//            outputStream.close();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
     }
 }
