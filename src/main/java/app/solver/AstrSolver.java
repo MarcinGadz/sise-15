@@ -18,31 +18,27 @@ public class AstrSolver extends Solver {
 
         List<Node> visited = new LinkedList<>();
 
-        Node root = new Node(tab, null);
-        while (!isSolved(root.getTab())) {
-            visited.add(SerializationUtils.clone(root));
+        Node node = new Node(tab, null);
+        while (!isSolved(node.getTab())) {
+            visited.add(SerializationUtils.clone(node));
             //param doesn't make any change in working of alghoritm
             // (it could be random permutation of these letters)
-            root.generateChildren(new char[]{'L', 'R', 'U', 'D'});
-            LinkedList<Node> children = new LinkedList<>(root.getChildren());
+            node.generateChildren(new char[]{'L', 'R', 'U', 'D'});
+            LinkedList<Node> children = new LinkedList<>(node.getChildren());
             //find node with minimum distance from goal
-            root = children.stream().min(c::calc).orElseThrow(RuntimeException::new);
-            while(visited.contains(root)) {
-                children.remove(root);
-                root = children.stream().min(c::calc).orElseThrow(RuntimeException::new);
+            node = children.stream().min(c::calc).orElseThrow(RuntimeException::new);
+            while (visited.contains(node)) {
+                children.remove(node);
+                node = children.stream().min(c::calc).orElseThrow(RuntimeException::new);
             }
-            System.out.println("\n\n\n");
-            root.printPrettyTab();
         }
-        System.out.println(root.getPath());
         return null;
     }
 
     private static int hammingDist(Node curr, Node goal) {
-        /***
-         * Distance is number of places in which tabs have different content
+        /*
+         Distance is number of places in which tabs have different content
          */
-
         int dist = 0;
         for (int i = 0; i < curr.getTab().length; i++) {
             for (int j = 0; j < curr.getTab()[i].length; j++) {
