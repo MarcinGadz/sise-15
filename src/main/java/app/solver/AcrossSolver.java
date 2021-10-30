@@ -1,12 +1,12 @@
 package app.solver;
 
 import app.Node;
+import java.util.ArrayList;
 
 public class AcrossSolver extends Solver {
 
     private char[] priorities;
-    short level = 0;
-    Node parent;
+
 
     @Override
     public ResultSet solve(String strategy, short[][] tab) {
@@ -14,91 +14,35 @@ public class AcrossSolver extends Solver {
         ResultSet resultSet = new ResultSet();
         priorities = new StringBuilder(strategy.toUpperCase()).reverse().toString().toCharArray();
         Node n = new Node(tab, null);
-        parent = n;
         explore(n);
         return resultSet;
     }
 
-    private boolean found;
-    private boolean checklevel(Node node) {
-        if(found) return false;
-        if(!node.isVis() && node.getDepth()==level-1){
-            found=true;
-            return false;
-        }
-        if(node.getChildren()==null) return false;
-        for( Node n : node.getChildren()) {
-            if (!checklevel(n)) {
-                found = true;
-                break;
-            }
-        }
-        return false;
-    }
-
-    private void clearAllTree(Node node) {
-        node.vis=false;
-        if(node.getChildren()==null) return;
-        for( Node n : node.getChildren()) {
-            n.vis=false;
-            clearAllTree(n);
-        }
-
-    }
-
-
-//    private boolean finished;
-
-//    private void explore(Node n) {
-//        if(finished) {
-//            return;
-//        }
-//        if(n.isVis()) return;
-//        n.generateChildren(priorities);
-//        level++;
-//        for (Node nodes : n.getChildren()){
-//            if(isSolved(nodes.getTab())) {
-//                finished=true;
-//                nodes.print();
-//                return; // jest git
-//            }
-//            nodes.vis = true;
-//            nodes.print();
-//        }
-//        if(checklevel(parent)) return;
-//        for ( Node nodes : n.getChildren()) {
-//            if(finished) return;
-//            clearAllTree(nodes);
-//            explore(nodes);
-//        }
-//    }
-    private final int maxDepth = 20;
-    boolean finished = false;
-
-    private void explore(Node node) {
-        if(node.getDepth() > maxDepth) {
+    private void explore(Node n) {
+        if(isSolved(n.getTab())){
             return;
         }
-        if(finished) return;
-        node.generateChildren(priorities);
-        node.print();
-        for (Node nodes : node.getChildren()){
-            if(isSolved(nodes.getTab())) {
-                finished=true;
-                nodes.print();
+
+        ArrayList<Node> first = new ArrayList<>();
+        ArrayList <Node> second = new ArrayList<>();
+        first.add(n);
+
+        while(true) {
+            for (int i = 0; i < first.size() ; i++) {
+                for (char c:priorities) {
+                    if(first.get(i).canCreateChildInDirection(c)) {
+                        Node child =first.get(i).createChild();
+                        child.move(c);
+                        if(isSolved(child.getTab())){
+                            System.out.println("Solution: ");
+                            child.printPrettyTab();
+                            return;
+                        }
+                        second.add(child);
+                    }
+                }
             }
+            first = second;
         }
-        if(checklevel(node)) return;
-        level++;
-        node.vis = true;
-        for (Node nodes : node.getChildren()){
-            explore(nodes);
-        }
-
-
     }
-
-
-
-
 }

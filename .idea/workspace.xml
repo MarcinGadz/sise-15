@@ -25,6 +25,7 @@
     <list default="true" id="d1e9202b-b36a-4655-916a-307a13576f36" name="Changes" comment="Working DFS alghoritm">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Node.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/solver/AcrossSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/solver/AcrossSolver.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -108,7 +109,8 @@
       <workItem from="1635023163749" duration="1638000" />
       <workItem from="1635066272432" duration="12960000" />
       <workItem from="1635089075777" duration="1297000" />
-      <workItem from="1635146015036" duration="1753000" />
+      <workItem from="1635146015036" duration="2173000" />
+      <workItem from="1635606820244" duration="5369000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1634128650831</created>
@@ -197,14 +199,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/app/solver/DfsSolver.java</url>
           <line>96</line>
           <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/app/solver/AcrossSolver.java</url>
-          <line>22</line>
-          <properties class="app.solver.AcrossSolver" method="checklevel">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
