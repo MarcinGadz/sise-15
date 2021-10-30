@@ -22,11 +22,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1e9202b-b36a-4655-916a-307a13576f36" name="Changes" comment="Working DFS alghoritm">
+
+    <list default="true" id="d1e9202b-b36a-4655-916a-307a13576f36" name="Changes" comment="Improvement on dfs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/solver/AcrossSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/solver/AcrossSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/solver/AstrSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/solver/AstrSolver.java" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +45,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1zRkoWwlEiYsRCRylKhstEQXFjl" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -106,11 +116,8 @@
       <workItem from="1634397124275" duration="2760000" />
       <workItem from="1634508689029" duration="12104000" />
       <workItem from="1634722659413" duration="16848000" />
-      <workItem from="1635023163749" duration="1638000" />
-      <workItem from="1635066272432" duration="12960000" />
-      <workItem from="1635089075777" duration="1297000" />
-      <workItem from="1635146015036" duration="2173000" />
-      <workItem from="1635606820244" duration="5369000" />
+      <workItem from="1635022527636" duration="4345000" />
+
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1634128650831</created>
@@ -154,7 +161,21 @@
       <option name="project" value="LOCAL" />
       <updated>1634399746399</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Improvement on dfs">
+      <created>1634815999871</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1634815999871</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Improvement on dfs">
+      <created>1634816345247</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1634816345247</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,7 +192,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="master" />
+                        <option value="origin/master" />
                       </list>
                     </value>
                   </entry>
@@ -190,17 +211,7 @@
     <MESSAGE value="added main package" />
     <MESSAGE value="..." />
     <MESSAGE value="Added parsing arguments, saving results and stats to files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added parsing arguments, saving results and stats to files" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/app/solver/DfsSolver.java</url>
-          <line>96</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Improvement on dfs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Improvement on dfs" />
   </component>
 </project>

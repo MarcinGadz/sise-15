@@ -14,10 +14,6 @@ public class Parser {
             for (int i = 1; i < rows + 1; i++) {
                 String[] line = content[i].split(" ");
                 for (int j = 0; j < cols; j++) {
-//                    if (i == rows && j == cols - 1) {
-//                        tab[i-1][j] = 0;
-//                        continue;
-//                    }
                     tab[i-1][j] = Short.parseShort(line[j]);
                 }
             }

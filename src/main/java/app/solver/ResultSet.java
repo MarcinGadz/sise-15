@@ -1,4 +1,5 @@
 package app.solver;
+
 public class ResultSet {
     /***
      * Class to represent required data about resolved puzzle
@@ -21,23 +22,29 @@ public class ResultSet {
     public ResultSet() {
     }
 
-    public String generateReport() {
-        StringBuilder b = new StringBuilder();
-        b.append(solution.length());
-        b.append("\n");
-        b.append(visited);
-        b.append('\n');
-        b.append(checked);
-        b.append('\n');
-        b.append(maxRecursionDepth);
-        b.append('\n');
-        String tmp = (computeTimeMicros / 1000)  + "," + (computeTimeMicros % 1000);
-        b.append(tmp);
-        return b.toString();
+    public String generateAdditionalReport() {
+        String tmp = (computeTimeMicros / 1000) + "," + (computeTimeMicros % 1000);
+        return solution.length() +
+                "\n" +
+                visited +
+                '\n' +
+                checked +
+                '\n' +
+                maxRecursionDepth +
+                '\n' +
+                tmp;
     }
+
+    public String generateSolutionReport() {
+        return solution.length() +
+                "\n" +
+                solution;
+    }
+
     public void visitedIncrease() {
         visited++;
     }
+
     public void checkedIncrease() {
         checked++;
     }

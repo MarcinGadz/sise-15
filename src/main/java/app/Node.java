@@ -6,71 +6,50 @@ import java.io.Serializable;
 import java.util.*;
 
 public class Node implements Serializable {
-    private short[][] tab;
+    private final short[][] tab;
     //If parent is null, node is ROOT
     private Node parent;
-    private Stack<Node> children;
-    private List<Character> visited = Collections.emptyList();
+    private List<Node> children;
     private int numberOfMoves;
     private char move = 'x';
+    public short checked;
+
     //Location of empty cell
     private short x0, y0;
-    public boolean vis = false;
 
-    public boolean isVis() {
-        return vis;
+    public void tagAsChecked() {
+        checked++;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Node node = (Node) o;
-        return Arrays.deepEquals(tab, node.tab);
-    }
-
-    @Override
-    public int hashCode() {
-        int result;
-        result = 31 *  Arrays.deepHashCode(tab);
-        return result;
+    public boolean wasThatTabInBranch() {
+        Node tmp = this.getParent();
+        while (tmp != null) {
+            if (Arrays.deepEquals(tmp.tab, this.tab)) {
+                return true;
+            }
+            tmp = tmp.getParent();
+        }
+        return false;
     }
 
     public boolean canCreateChildInDirection(Character direction) {
-        for (short i = 0; i < tab.length; i++) {
-            for (short j = 0; j < tab[i].length; j++) {
-                if (tab[i][j] == 0) {
-                    x0 = j;
-                    y0 = i;
-                }
-            }
-        }
-        short toX, toY;
         switch (direction) {
             case 'L' -> {
-                toX = (short) (x0 - 1);
-                toY = y0;
+                return x0 - 1 >= 0;
             }
             case 'R' -> {
-                toX = (short) (x0 + 1);
-                toY = y0;
+                return x0 + 1 < tab[0].length;
             }
             case 'U' -> {
-                toY = (short) (y0 - 1);
-                toX = x0;
+                return y0 - 1 >= 0;
             }
             case 'D' -> {
-                toY = (short) (y0 + 1);
-                toX = x0;
+                return y0 + 1 < tab.length;
             }
             default -> {
                 return false;
             }
         }
-        if(tab[y0][x0] != 0 ) {
-            throw new RuntimeException();
-        }
-        return toX >= 0 && toY >= 0 && toX < tab[0].length && toY < tab.length;
     }
 
     public void move(Character direction) {
@@ -101,7 +80,6 @@ public class Node implements Serializable {
         short tmp = tab[y0][x0];
         tab[y0][x0] = tab[toY][toX];
         tab[toY][toX] = tmp;
-        if(tmp != 0) throw new RuntimeException();
         this.move = direction;
         x0 = toX;
         y0 = toY;
@@ -137,36 +115,22 @@ public class Node implements Serializable {
         short[][] tmp = SerializationUtils.clone(this.tab);
         Node child = new Node(tmp, this);
         if (this.getChildren() == null) {
-            this.children = new Stack<>();
+            this.children = new LinkedList<>();
         }
-        this.getChildren().push(child);
+        this.getChildren().add(child);
         return child;
     }
 
     public void generateChildren(char[] priorities) {
-        for (char c:priorities) {
-            if(canCreateChildInDirection(c)) {
+        for (char c : priorities) {
+            if (canCreateChildInDirection(c)) {
                 Node child = this.createChild();
                 child.move(c);
             }
         }
     }
 
-    public boolean notVisited(char c) {
-        return !visited.contains(c);
-    }
-
-    public List<Character> getVisited() {
-        return visited;
-    }
-
-    public void addVisited(char c) {
-        if(visited.isEmpty()) {
-            visited = new ArrayList<>();
-        }
-        visited.add(c);
-    }
-    /*** Getters ***/
+    /*** Getters, hashCode, equals, etc. ***/
 
     public short[][] getTab() {
         return tab;
@@ -176,28 +140,12 @@ public class Node implements Serializable {
         StringBuilder b = new StringBuilder();
         Node tmp = this;
         while (tmp != null) {
-            if(tmp.getMove() != 'x') {
+            if (tmp.getMove() != 'x') {
                 b.append(tmp.getMove());
             }
             tmp = tmp.parent;
         }
         return b.reverse().toString();
-    }
-
-    public Character getMove() {
-        return this.move;
-    }
-
-    public Node getParent() {
-        return parent;
-    }
-
-    public Stack<Node> getChildren() {
-        return children;
-    }
-
-    public int getNumberOfMoves() {
-        return numberOfMoves;
     }
 
     public int getDepth() {
@@ -208,6 +156,46 @@ public class Node implements Serializable {
             depth++;
         }
         return depth;
+    }
+
+    public Character getMove() {
+        return this.move;
+    }
+
+    public Node getParent() {
+        return parent;
+    }
+
+    public List<Node> getChildren() {
+        return children;
+    }
+
+    public int getNumberOfMoves() {
+        return numberOfMoves;
+    }
+
+    public short getX0() {
+        return x0;
+    }
+
+    public short getY0() {
+        return y0;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Node node = (Node) o;
+        return Arrays.deepEquals(tab, node.tab) && parent == node.parent;
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        result = 31 * Arrays.deepHashCode(tab);
+        return result;
     }
 
 
