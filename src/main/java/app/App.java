@@ -1,5 +1,6 @@
 package app;
 
+
 import app.solver.*;
 
 import java.io.FileOutputStream;
@@ -8,18 +9,18 @@ import java.nio.charset.StandardCharsets;
 
 public class App {
     public static void main(String[] args) {
-        String algorithm, additionalInfo, input, solution, stats;
-        if (args.length != 5) {
-            System.out.println("Niepoprawne parametry");
-            return;
-        }
-        algorithm = args[0];
-        additionalInfo = args[1];
-        input = args[2];
-        solution = args[3];
-        stats = args[4];
+       String algorithm, additionalInfo, input, solution, stats;
+       if (args.length != 5) {
+           System.out.println("Niepoprawne parametry");
+           return;
+       }
+       algorithm = args[0];
+       additionalInfo = args[1];
+       input = args[2];
+       solution = args[3];
+       stats = args[4];
 
-        Solver solver = new DfsSolver();
+       Solver solver = new DfsSolver();
 
         switch (algorithm.toLowerCase()) {
             case "bfs" -> solver = new AcrossSolver();
@@ -27,16 +28,10 @@ public class App {
             case "astr" -> solver = new AstrSolver();
         }
 
+
         short[][] tab = Parser.parse(input);
         ResultSet set = solver.solve(additionalInfo, tab);
 
-        try {
-            FileOutputStream outputStream = new FileOutputStream(solution);
-            outputStream.write(set.generateSolutionReport().getBytes(StandardCharsets.UTF_8));
-            outputStream.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
         try {
             FileOutputStream outputStream = new FileOutputStream(stats);
@@ -65,7 +60,9 @@ public class App {
 //                System.out.println("Nie udało się " + fnames[i]);
 //            }
 //        }
+
 //        System.out.println("Rozwiązano: " + tmpCount + " z: " + 100);
+
 
 
     }

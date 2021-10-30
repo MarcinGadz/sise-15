@@ -17,7 +17,6 @@ public class Node implements Serializable {
     //Location of empty cell
     private short x0, y0;
 
-
     public void tagAsChecked() {
         checked++;
     }
@@ -183,6 +182,7 @@ public class Node implements Serializable {
         return y0;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -197,5 +197,6 @@ public class Node implements Serializable {
         result = 31 * Arrays.deepHashCode(tab);
         return result;
     }
+
 
 }
