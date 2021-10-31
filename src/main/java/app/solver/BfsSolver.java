@@ -1,6 +1,7 @@
 package app.solver;
 
 import app.Node;
+
 import java.util.ArrayList;
 
 public class BfsSolver extends Solver {
@@ -12,7 +13,7 @@ public class BfsSolver extends Solver {
     public ResultSet solve(String strategy, short[][] tab) {
 
         results = new ResultSet();
-        priorities = new StringBuilder(strategy.toUpperCase()).reverse().toString().toCharArray();
+        priorities = strategy.toUpperCase().toCharArray();
         Long startTime = System.nanoTime();
         Node n = new Node(tab, null);
         explore(n);
@@ -25,32 +26,33 @@ public class BfsSolver extends Solver {
     }
 
     private void explore(Node n) {
-        if(isSolved(n.getTab())){
+        if (isSolved(n.getTab())) {
             return;
         }
 
         ArrayList<Node> first = new ArrayList<>();
-        ArrayList <Node> second = new ArrayList<>();
+        ArrayList<Node> second = new ArrayList<>();
         first.add(n);
 
-        while(true) {
-            for (int i = 0; i < first.size() ; i++) {
-                for (char c:priorities) {
-                    if(first.get(i).canCreateChildInDirection(c)) {
-                        Node child =first.get(i).createChild();
+        while (true) {
+            for (Node node : first) {
+                results.visitedIncrease();
+                results.setMaxRecursionDepth(Math.max(results.getMaxRecursionDepth(), n.getDepth() + 1));
+                for (char c : priorities) {
+                    if (node.canCreateChildInDirection(c)) {
+                        Node child = node.createChild();
                         child.move(c);
-                        if(isSolved(child.getTab())){
-                            System.out.println("Solution: ");
-                            child.printPrettyTab();
+                        if (isSolved(child.getTab())) {
                             results.setSolution(child.getPath());
-                            System.out.println(child.getPath());
                             return;
                         }
                         second.add(child);
                     }
                 }
+                results.checkedIncrease();
             }
-            first = second;
+            first = new ArrayList<>(second);
+            second = new ArrayList<>();
         }
     }
 }
