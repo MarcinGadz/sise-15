@@ -3,19 +3,25 @@ package app.solver;
 import app.Node;
 import java.util.ArrayList;
 
-public class AcrossSolver extends Solver {
+public class BfsSolver extends Solver {
 
     private char[] priorities;
-
+    ResultSet results;
 
     @Override
     public ResultSet solve(String strategy, short[][] tab) {
 
-        ResultSet resultSet = new ResultSet();
+        results = new ResultSet();
         priorities = new StringBuilder(strategy.toUpperCase()).reverse().toString().toCharArray();
+        Long startTime = System.nanoTime();
         Node n = new Node(tab, null);
         explore(n);
-        return resultSet;
+        Long finishTime = System.nanoTime();
+        results.setComputeTimeMicros((finishTime - startTime) / 1000);
+        if (results.getSolution() == null) {
+            throw new RuntimeException("Nie udało się");
+        }
+        return results;
     }
 
     private void explore(Node n) {
@@ -36,6 +42,8 @@ public class AcrossSolver extends Solver {
                         if(isSolved(child.getTab())){
                             System.out.println("Solution: ");
                             child.printPrettyTab();
+                            results.setSolution(child.getPath());
+                            System.out.println(child.getPath());
                             return;
                         }
                         second.add(child);
