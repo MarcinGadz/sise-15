@@ -2,8 +2,6 @@ package app.solver;
 
 import app.Node;
 
-import java.util.LinkedList;
-import java.util.List;
 
 public class DfsSolver extends Solver {
     private final int maxDepth = 25;
@@ -13,7 +11,6 @@ public class DfsSolver extends Solver {
 
     @Override
     public ResultSet solve(String strategy, short[][] tab) {
-        visited = new LinkedList<>();
         results = new ResultSet();
         priorities = strategy.toUpperCase().toCharArray();
         startTime = System.nanoTime();
@@ -29,7 +26,7 @@ public class DfsSolver extends Solver {
 
     private boolean finished;
 
-    List<Node> visited = new LinkedList<>();
+
 
     private void explore(Node n) {
         // Jeżeli dany układ już pojawił się w sprawdzanej gałęzi - nie przetwarzaj go ponownie
@@ -37,9 +34,9 @@ public class DfsSolver extends Solver {
             return;
         }
         // Jeśli dany układ nie zostanie rozwiązany w 20s, przerwij
-        if ((System.nanoTime() - startTime) / 1000000000 >= 200000) {
-            throw new RuntimeException("Upłynął maksymalny czas");
-        }
+       // if ((System.nanoTime() - startTime) / 1000000000 >= 200000) {
+       //     throw new RuntimeException("Upłynął maksymalny czas");
+       // }
         // Jeśli osiągnięto maksymalną określoną głębokość rekurencji - przerwij
         if (finished || n.getDepth() > maxDepth) {
             return;
@@ -57,6 +54,7 @@ public class DfsSolver extends Solver {
                 return;
             }
             explore(child);
+            results.visitedIncrease();
         });
         results.checkedIncrease();
     }

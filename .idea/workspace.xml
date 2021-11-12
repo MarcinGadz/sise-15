@@ -25,7 +25,10 @@
     <list default="true" id="d1e9202b-b36a-4655-916a-307a13576f36" name="Changes" comment="Improvement on dfs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/solver/AcrossSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/solver/BfsSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/solver/BfsSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/solver/BfsSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/solver/DfsSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/solver/DfsSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/solver/ResultSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/solver/ResultSet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +97,7 @@
       <option name="ALTERNATIVE_JRE_PATH" value="openjdk-17" />
       <option name="MAIN_CLASS_NAME" value="app.App" />
       <module name="fifteen" />
-      <option name="PROGRAM_PARAMETERS" value="dfs DRUL 3x3_02_00004 sol.txt stat.txt" />
+      <option name="PROGRAM_PARAMETERS" value="astr hamm ./input1/4x4_01_00001.txt sol.txt stat.txt" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -115,6 +118,11 @@
       <workItem from="1634722659413" duration="16848000" />
       <workItem from="1635022527636" duration="4345000" />
       <workItem from="1635614746581" duration="4541000" />
+      <workItem from="1636542520245" duration="3703000" />
+      <workItem from="1636560527272" duration="590000" />
+      <workItem from="1636631335041" duration="586000" />
+      <workItem from="1636661918087" duration="7842000" />
+      <workItem from="1636712518592" duration="15023000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1634128650831</created>
@@ -210,5 +218,21 @@
     <MESSAGE value="Added parsing arguments, saving results and stats to files" />
     <MESSAGE value="Improvement on dfs" />
     <option name="LAST_COMMIT_MESSAGE" value="Improvement on dfs" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/app/solver/BfsSolver.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="app.Node" memberName="parent" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>

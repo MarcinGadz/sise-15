@@ -149,7 +149,7 @@ public class Node implements Serializable {
     }
 
     public int getDepth() {
-        int depth = 1;
+        int depth = 0;
         Node tmp = this;
         while (tmp != null) {
             tmp = tmp.getParent();

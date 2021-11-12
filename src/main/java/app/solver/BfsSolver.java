@@ -30,18 +30,21 @@ public class BfsSolver extends Solver {
             return;
         }
 
+        results.visitedIncrease();
+        results.checkedIncrease();
         ArrayList<Node> first = new ArrayList<>();
         ArrayList<Node> second = new ArrayList<>();
         first.add(n);
 
         while (true) {
             for (Node node : first) {
-                results.visitedIncrease();
-                results.setMaxRecursionDepth(Math.max(results.getMaxRecursionDepth(), n.getDepth() + 1));
                 for (char c : priorities) {
                     if (node.canCreateChildInDirection(c)) {
                         Node child = node.createChild();
                         child.move(c);
+                        results.setMaxRecursionDepth(Math.max(results.getMaxRecursionDepth(), child.getDepth() ));
+                        results.visitedIncrease();
+                        results.checkedIncrease();
                         if (isSolved(child.getTab())) {
                             results.setSolution(child.getPath());
                             return;
@@ -49,7 +52,7 @@ public class BfsSolver extends Solver {
                         second.add(child);
                     }
                 }
-                results.checkedIncrease();
+
             }
             first = new ArrayList<>(second);
             second = new ArrayList<>();

@@ -36,6 +36,7 @@ public class ResultSet {
     }
 
     public String generateSolutionReport() {
+        if (solution==null) return "-1";
         return solution.length() +
                 "\n" +
                 solution;
