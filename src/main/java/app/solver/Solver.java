@@ -1,7 +1,6 @@
 package app.solver;
 
 import java.util.Arrays;
-import java.util.HashMap;
 
 public abstract class Solver {
     /***
@@ -10,7 +9,7 @@ public abstract class Solver {
      * @param tab
      * @return class with all data about computed solution
      */
-    private short[][] target;
+    short[][] target;
 
     public abstract ResultSet solve(String strategy, short[][] tab);
 
@@ -21,8 +20,8 @@ public abstract class Solver {
         return Arrays.deepEquals(tab, target);
     }
 
-    private void generateTarget(int xlen, int ylen) {
-        target = new short[ylen][xlen];
+    void generateTarget(int xlen, int ylen) {
+        target = new short[xlen][ylen];
         for (short i = 0; i < xlen; i++) {
             for (short j = 0; j < ylen; j++) {
                 if (i*j == (xlen-1)*(ylen-1)) {
@@ -33,5 +32,4 @@ public abstract class Solver {
             }
         }
     }
-
 }

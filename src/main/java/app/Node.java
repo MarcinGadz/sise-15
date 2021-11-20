@@ -6,6 +6,7 @@ import java.io.Serializable;
 import java.util.*;
 
 public class Node implements Serializable {
+    public int score = -1;
     private final short[][] tab;
     //If parent is null, node is ROOT
     private Node parent;
@@ -30,6 +31,16 @@ public class Node implements Serializable {
             tmp = tmp.getParent();
         }
         return false;
+    }
+
+    public String savetext() {
+        StringBuilder text = new StringBuilder();
+        for (int i = 0; i < tab.length; i++) {
+            for (int j = 0; j < tab[i].length; j++) {
+                text.append(tab[i][j]);
+            }
+        }
+        return text.toString();
     }
 
     public boolean canCreateChildInDirection(Character direction) {
@@ -85,14 +96,13 @@ public class Node implements Serializable {
         y0 = toY;
     }
 
-    public String savetext() {
-        StringBuilder text = new StringBuilder();
+    public void printPrettyTab() {
         for (int i = 0; i < tab.length; i++) {
             for (int j = 0; j < tab[i].length; j++) {
-                text.append(tab[i][j]);
+                System.out.print(tab[i][j] + " ");
             }
+            System.out.println();
         }
-        return text.toString();
     }
 
     public Node(short[][] tab, Node parent) {
@@ -113,7 +123,13 @@ public class Node implements Serializable {
     }
 
     public Node createChild() {
-        short[][] tmp = SerializationUtils.clone(this.tab);
+        short[][] tmp = new short[tab.length][];
+        for (int i = 0; i < this.tab.length; i++) {
+            tmp[i] = new short[tab[i].length];
+            for (int j = 0; j < this.tab[i].length; j++) {
+                tmp[i][j]= this.tab[i][j];
+            }
+        }
         Node child = new Node(tmp, this);
         if (this.getChildren() == null) {
             this.children = new LinkedList<>();
@@ -150,7 +166,7 @@ public class Node implements Serializable {
     }
 
     public int getDepth() {
-        int depth = 0;
+        int depth = 1;
         Node tmp = this;
         while (tmp != null) {
             tmp = tmp.getParent();
@@ -171,8 +187,6 @@ public class Node implements Serializable {
         return children;
     }
 
-    public void removeChild(Node node) { children.remove(node); }
-
     public int getNumberOfMoves() {
         return numberOfMoves;
     }
@@ -191,7 +205,7 @@ public class Node implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Node node = (Node) o;
-        return Arrays.deepEquals(tab, node.tab) && parent == node.parent;
+        return Arrays.deepEquals(tab, node.tab);
     }
 
     @Override

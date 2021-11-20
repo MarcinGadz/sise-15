@@ -28,15 +28,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d1e9202b-b36a-4655-916a-307a13576f36" name="Changes" comment="Improvement on dfs">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sol.txt" beforeDir="false" afterPath="$PROJECT_DIR$/sol.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/solver/BfsSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/solver/BfsSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/solver/AstrSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/solver/AstrSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/solver/DfsSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/solver/DfsSolver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/solver/Solver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/solver/Solver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stat.txt" beforeDir="false" afterPath="$PROJECT_DIR$/stat.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/test.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +72,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/target" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/app/solver" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.0" />
@@ -85,9 +82,12 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\marcin\IdeaProjects\sise-1522\src\main\java\app\solver" />
       <recent name="C:\Users\marcin\IdeaProjects\fifteen\target" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\marcin\IdeaProjects\sise-1522\src\main\java\app" />
+      <recent name="C:\Users\marcin\IdeaProjects\sise-1522\src\main\java\app\solver" />
       <recent name="C:\Users\marcin\IdeaProjects\fifteen" />
       <recent name="C:\Users\marcin\IdeaProjects\fifteen\" />
       <recent name="C:\Users\marcin\IdeaProjects\fifteen\src\main\resources" />
@@ -109,7 +109,7 @@
       <option name="ALTERNATIVE_JRE_PATH" value="openjdk-17" />
       <option name="MAIN_CLASS_NAME" value="app.App" />
       <module name="fifteen" />
-      <option name="PROGRAM_PARAMETERS" value="dfs DRUL ./input7/4x4_07_00119.txt sol.txt stat.txt" />
+      <option name="PROGRAM_PARAMETERS" value="astr manh ./input5/4x4_05_00002.txt sol.txt stat.txt" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -137,6 +137,7 @@
       <workItem from="1636712518592" duration="15023000" />
       <workItem from="1637364414236" duration="547000" />
       <workItem from="1637424505579" duration="1583000" />
+      <workItem from="1637429177551" duration="2734000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1634128650831</created>
