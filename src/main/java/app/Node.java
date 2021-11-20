@@ -85,13 +85,14 @@ public class Node implements Serializable {
         y0 = toY;
     }
 
-    public void printPrettyTab() {
+    public String savetext() {
+        StringBuilder text = new StringBuilder();
         for (int i = 0; i < tab.length; i++) {
             for (int j = 0; j < tab[i].length; j++) {
-                System.out.print(tab[i][j] + " ");
+                text.append(tab[i][j]);
             }
-            System.out.println();
         }
+        return text.toString();
     }
 
     public Node(short[][] tab, Node parent) {
@@ -169,6 +170,8 @@ public class Node implements Serializable {
     public List<Node> getChildren() {
         return children;
     }
+
+    public void removeChild(Node node) { children.remove(node); }
 
     public int getNumberOfMoves() {
         return numberOfMoves;

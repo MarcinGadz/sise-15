@@ -1,6 +1,7 @@
 package app.solver;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 public abstract class Solver {
     /***
@@ -21,7 +22,7 @@ public abstract class Solver {
     }
 
     private void generateTarget(int xlen, int ylen) {
-        target = new short[xlen][ylen];
+        target = new short[ylen][xlen];
         for (short i = 0; i < xlen; i++) {
             for (short j = 0; j < ylen; j++) {
                 if (i*j == (xlen-1)*(ylen-1)) {
@@ -32,4 +33,5 @@ public abstract class Solver {
             }
         }
     }
+
 }
