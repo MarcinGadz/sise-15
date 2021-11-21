@@ -29,14 +29,6 @@ public class DfsSolver extends Solver {
 
 
     private void explore(Node n) {
-        // Jeżeli dany układ już pojawił się w sprawdzanej gałęzi - nie przetwarzaj go ponownie
-//        if (n.wasThatTabInBranch()) {
-//            return;
-//        }
-        // Jeśli dany układ nie zostanie rozwiązany w 20s, przerwij
-       // if ((System.nanoTime() - startTime) / 1000000000 >= 200000) {
-       //     throw new RuntimeException("Upłynął maksymalny czas");
-       // }
         // Jeśli osiągnięto maksymalną określoną głębokość rekurencji - przerwij
         if (finished || n.getDepth() > maxDepth) {
             return;

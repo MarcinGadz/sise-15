@@ -13,25 +13,9 @@ public class Node implements Serializable {
     private List<Node> children;
     private int numberOfMoves;
     private char move = 'x';
-    public short checked;
 
     //Location of empty cell
     private short x0, y0;
-
-    public void tagAsChecked() {
-        checked++;
-    }
-
-    public boolean wasThatTabInBranch() {
-        Node tmp = this.getParent();
-        while (tmp != null) {
-            if (Arrays.deepEquals(tmp.tab, this.tab)) {
-                return true;
-            }
-            tmp = tmp.getParent();
-        }
-        return false;
-    }
 
     public String savetext() {
         StringBuilder text = new StringBuilder();
@@ -94,15 +78,6 @@ public class Node implements Serializable {
         this.move = direction;
         x0 = toX;
         y0 = toY;
-    }
-
-    public void printPrettyTab() {
-        for (int i = 0; i < tab.length; i++) {
-            for (int j = 0; j < tab[i].length; j++) {
-                System.out.print(tab[i][j] + " ");
-            }
-            System.out.println();
-        }
     }
 
     public Node(short[][] tab, Node parent) {
